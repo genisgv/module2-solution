@@ -48,17 +48,31 @@ Here is what you will need to do to complete the assignment:
   * Option 2: Create the HTML/CSS yourself. Make sure to name the HTML file `index.html`. The only requirement is that your HTML have the required lists as described in the General Idea section. You can make the lists side by side or one under the other. The rest is up to you.
 5. Import AngularJS into your project and place a `<script>` tag right before the `</body>` tag.
 6. Declare `ng-app` either on the `html` or the `body` element. Name your app `ShoppingListCheckOff`.
+
 7. Create `app.js` in your project and declare an Angular module to match your `ng-app` declaration.
+
 8. Go back to `index.html` and declare 2 controllers using `controller as` syntax. One controller should be called `ToBuyController` and the other called `AlreadyBoughtController`. You are *required* to have 2 controllers for this assignment.
+
 9. You will obviously need to share data between these controllers. Go back to `app.js` and implement this data sharing using the *singleton* approach with the `.service` declaration. Call the service `ShoppingListCheckOffService`. Make sure to inject this service into both controllers so they can share data. Also, realize that your service will have to keep track of both 'to buy' and 'bought' items at the same time. (*While there is no one right way to accomplish this functionality, for this assignment, you are required to implement it as described.*)
+
   * (*Hint*) You can store 2 separate arrays in the service: one to hold "to buy" items and one to hold "bought" items. The reference to the "to buy" array should be placed/exposed onto the `ToBuyController` instance as some property. The reference to the "bought" items array should be placed/exposed onto the `AlreadyBoughtController` instance as some property.
+
+
   * (*Hint*) When the user clicks on the "Bought" button, simply pass the call from your (`ng-click`) controller-bound method to call the right method inside of your `ShoppingListCheckOffService` service, which removes that item from the "to buy" array and pushes it to the "bought" array.
+
+
   * (*Hint*) Your `ShoppingListCheckOffService` would also be the place where you would store the initial array of "to buy" items.
 10. To display and/or hide the messages when the list(s) are empty, use the `ng-if` directive.
 11. To loop over the items in either list use the `ng-repeat` directive.
 12. Make sure all of your Javascript code is inside of an IIFE. (*If you don't know what that is or why we'd want to use it, brush up on it by looking through module 4 of [HTML, CSS, and Javascript for Web Developers](https://www.coursera.org/learn/html-css-javascript-for-web-developers/) course I teach.*)
 13. Make sure all of your dependency injections are protected from minification.
 14. After you are done and satisfied with your solution, don't forget to add/commit/push your code to your repository.
+
+
+
+
+
+
 
 ## **IMPORTANT REMINDERS:**
 * Closely follow the submission guidelines for this assignment on Coursera.org

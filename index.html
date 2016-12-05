@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en">
+<html lang="en" ng-app='ShoppingListCheckOff'>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
   <head>
     <title>Shopping List Check Off</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,20 +30,22 @@
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller='ToBuyController as listToBuy'>
      <h2>To Buy:</h2>
-     <ul>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-     </ul>
+     <li ng-repeat="item in listToBuy.itemsToBuy">
+          Buy {{ item.quantity }} {{ item.name }}
+          <button ng-click="listToBuy.toMove($index);" class="glyphicon glyphicon-ok" >Bought</button>
+      </li>
      <div class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
+    <div  class="col-md-6" ng-controller='AlreadyBoughtController as listBought'>
      <h2>Already Bought:</h2>
      <ul>
-       <li>Bought 10 cookies</li>
+       <li ng-repeat="item in listBought.itemsBought">
+            Bought {{ item.quantity }} {{ item.name }}
+        </li>
      </ul>
      <div class="emptyMessage">Nothing bought yet.</div>
     </div>
