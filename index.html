@@ -36,7 +36,8 @@
           Buy {{ item.quantity }} {{ item.name }}
           <button ng-click="listToBuy.toMove($index);" class="glyphicon glyphicon-ok" >Bought</button>
       </li>
-     <div class="emptyMessage">Everything is bought!</div>
+      <div ng-if="listToBuy.itemsToBuy.length <=0 " class="emptyMessage">Everything is bought!</div>
+
     </div>
 
     <!-- Already Bought List -->
@@ -47,7 +48,7 @@
             Bought {{ item.quantity }} {{ item.name }}
         </li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div ng-if="listBought.itemsBought.length == 0 " class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>

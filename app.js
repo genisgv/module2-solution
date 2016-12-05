@@ -1,8 +1,6 @@
 (function () {
 'use strict';
 
-
-
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
@@ -15,8 +13,8 @@ function ToBuyController(ShoppingListCheckOffService)
 
   listToBuy.itemsToBuy = ShoppingListCheckOffService.getItemsToBuy();
 
-  listToBuy.ToMove = function (itemIndex) {
-    ShoppingListCheckOffService.ToMove(itemIndex);
+  listToBuy.toMove = function (itemIndex) {
+    ShoppingListCheckOffService.toMove(itemIndex);
   };
 }
 
@@ -43,10 +41,9 @@ function ShoppingListCheckOffService()
 
   var itemsBought = [];
 
-  service.ToMove = function (itemIndex) {
-    console.console.log(itemIndex);
+  service.toMove = function (itemIndex) {
     itemsBought.push(itemsToBuy[itemIndex]);
-    itemsToBuy.splice(itemIdex, 1);
+    itemsToBuy.splice(itemIndex, 1);
   };
 
   service.getItemsToBuy = function () {
